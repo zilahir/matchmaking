@@ -19,7 +19,7 @@ $(document).ready(function() {
                 //console.log(html); 
                 $(html).addClass("bg-success");
                 $(icon).addClass("hidden");
-                Push.create("Óha "+response.username+"!", {
+                Push.create("Óha, "+response.username+"!", {
 				    body: "You have just liked "+response.likedusersname,
 				    icon: 'icon.png',
 				    timeout: 4000,

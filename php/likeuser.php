@@ -8,6 +8,8 @@ session_start();
 
 #1 check back if the user has been already back liked
 
+
+/*inserts the like into database */
 likeUser($username, $userId);
 
 $likedUsersName = getUserById($userId);

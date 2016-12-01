@@ -2,7 +2,7 @@
 
 session_start();
 //session_destroy();
-$_SESSION['username'] = 'Richard Zilahi';
+$_SESSION['username'] = 'Ishmael Rivers ';
 $username = $_SESSION['username'];
 
 //echo $username2;
@@ -35,7 +35,7 @@ function getUserById ($id) {
 }
 
 function haveLiked ($id) {
-    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Richard Zilahi' AND `whom`='$id' ";
+    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Ishmael Rivers' AND `whom`='$id' ";
     $rows = MySQL::getRows($haveIlikedAlreadySql);
     $firstRow = $rows[0];
     
