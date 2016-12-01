@@ -10,7 +10,9 @@ session_start();
 
 likeUser($username, $userId);
 
-$result = array('status' => 'success', 'username' => $username );
+$likedUsersName = getUserById($userId);
+
+$result = array('status' => 'success', 'username' => $username, 'likedusersname' => $likedUsersName );
 
 echo json_encode($result);
 
