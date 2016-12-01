@@ -8,6 +8,8 @@ $userId = $_POST['id'];
 
 likeUser($username, $userId);
 
-echo json_encode("success");
+$result = array('status' => 'success' );
+
+echo json_encode($result);
 
 ?>

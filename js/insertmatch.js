@@ -5,6 +5,7 @@ $(document).ready(function() {
 
         e.preventDefault();
         var id = $(this).data("id");
+        var html = $(this).parent().parent();
         //alert(id);
         
         jQuery.ajax({
@@ -13,7 +14,9 @@ $(document).ready(function() {
             dataType:"json", 
             data:{id:id}, 
             success:function(response){
-                console.log(response);
+                //console.log(response);
+                console.log(html); 
+                $(html).addClass("bg-success");
             },
             error:function (xhr, ajaxOptions, thrownError){
                 alert(thrownError);

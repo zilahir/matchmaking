@@ -1,9 +1,11 @@
 <?php
 
 session_start();
-$_SESSION['username'] = 'Richard Zailhi';
-
+//session_destroy();
+$_SESSION['username'] = 'Richard Zilahi';
 $username = $_SESSION['username'];
+
+//echo $username2;
 
 include_once("MySQL.php");
 
@@ -32,7 +34,21 @@ function getUserById ($id) {
 
 }
 
-function getAllUsername () {
+function haveLiked ($id) {
+    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Richard Zilahi' AND `whom`='$id' ";
+    $rows = MySQL::getRows($haveIlikedAlreadySql);
+    $firstRow = $rows[0];
+    
+    if (isset($firstRow)) {
+        $result = array('status' => "i have liked", 'thumbs-up-class' => 'hidden', 'row-class' => 'bg-success' );
+    } else {
+        $result = "i have not";
+    }
+
+    return $result;
+}
+
+function getAllUsername ($username) {
     $getAllUsersSql = "SELECT * FROM `users` ORDER BY `id` ASC "; 
     $rows = MySQL::getRows($getAllUsersSql);
 
@@ -48,17 +64,18 @@ function getAllUsername () {
         $name = $row->name;
         $city = $row->city;
         $email = $row->email;
-        $phone = $row->phone; 
+        $phone = $row->phone;
+        $haveIlikedAlready = haveLiked($id);
 
         echo '
-        <tr>
-            <td>'.$counter.'</td>
+        <tr class='.$haveIlikedAlready['row-class'].'>
+            <td>'.$id.'</td>
             <td>'.$name.'</td>
             <td>'.$city.'</td>
             <td>'.$email.'</td>
             <td>'.$phone.'</td>
             <td>
-                <i class="matchbutton fa fa-thumbs-up" data-id="'.$id.'" aria-hidden="true"></i>
+                <i class="matchbutton fa fa-thumbs-up '.$haveIlikedAlready['thumbs-up-class'].'" data-id="'.$id.'" aria-hidden="true"></i>
             </td>
         </tr>
         ';
