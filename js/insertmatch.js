@@ -15,12 +15,12 @@ $(document).ready(function() {
             dataType:"json", 
             data:{id:id}, 
             success:function(response){
-                //console.log(response);
+                console.log(response);
                 //console.log(html); 
                 $(html).addClass("bg-success");
                 $(icon).addClass("hidden");
-                Push.create("Hello world!", {
-				    body: "How's it hangin'?",
+                Push.create("Dear "+response.username+"!", {
+				    body: "You have just liked someone",
 				    icon: 'icon.png',
 				    timeout: 4000,
 				    onClick: function () {
