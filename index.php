@@ -12,6 +12,7 @@
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<link rel=stylesheet href="bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel=stylesheet href="css/style.css">
+	<script type="text/javascript" src="bower_components/push.js/push.min.js"></script>
 	<script src="js/insertmatch.js"></script>
 </head>
 <body>
