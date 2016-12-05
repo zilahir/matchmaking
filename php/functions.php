@@ -2,14 +2,31 @@
 
 session_start();
 //session_destroy();
-$_SESSION['username'] = 'Ishmael Rivers ';
-$username = $_SESSION['username'];
-
-//echo $username2;
+$username = 'Richard Zilahi';
 
 include_once("MySQL.php");
 
 MySQL::connect();
+
+function checkBackLike ($me, $otherUser) {
+
+    $otherUserName = getUserById($otherUser);
+    $myId = getUserIdByName($me);
+    $result = MySQL::countLikes('matches','who', $otherUserName, 'whom', $myId);
+
+    return $result;
+
+}
+
+function getUserIdByName ($name) {
+    $getUsersNameSql = "SELECT * FROM `users` WHERE `name`='$name' ";
+    $rows = MySQL::getRows($getUsersNameSql);
+    $firstRow = $rows[0];
+
+    $userId = $firstRow->id;
+
+    return $userId;
+}
 
 function likeUser ($me, $otherUser) {
 
@@ -24,7 +41,7 @@ function likeUser ($me, $otherUser) {
 }
 
 function getUserById ($id) {
-    $getUsersNameSql = "SELECT * FROM `users` WHERE `id`='$id' "; 
+    $getUsersNameSql = "SELECT * FROM `users` WHERE `id`='$id' ";
     $rows = MySQL::getRows($getUsersNameSql);
     $firstRow = $rows[0];
 
@@ -35,10 +52,10 @@ function getUserById ($id) {
 }
 
 function haveLiked ($id) {
-    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Ishmael Rivers' AND `whom`='$id' ";
+    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Richard Zilahi' AND `whom`='$id' ";
     $rows = MySQL::getRows($haveIlikedAlreadySql);
     $firstRow = $rows[0];
-    
+
     if (isset($firstRow)) {
         $result = array('status' => "i have liked", 'thumbs-up-class' => 'hidden', 'row-class' => 'bg-success' );
     } else {
@@ -49,7 +66,7 @@ function haveLiked ($id) {
 }
 
 function getAllUsername ($username) {
-    $getAllUsersSql = "SELECT * FROM `users` ORDER BY `id` ASC "; 
+    $getAllUsersSql = "SELECT * FROM `users` ORDER BY `id` ASC ";
     $rows = MySQL::getRows($getAllUsersSql);
 
     $counter = 0;

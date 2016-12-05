@@ -7,14 +7,22 @@ $userId = $_POST['id'];
 session_start();
 
 #1 check back if the user has been already back liked
+$checkBackLike = checkBackLike ($username, $userId);
 
+if ($checkBackLike == 0) {
+  /*inserts the like into database */
+  likeUser($username, $userId);
+  $likedUsersName = getUserById($userId);
+  // result, if the user has not been liked back
+  $result = array('status' => 'liked', 'username' => $username, 'likedusersname' => $likedUsersName );
+} else {
+  $likedUsersName = getUserById($userId);
+  $result = array('status' => 'a match with', 'username' => $username, 'likedusersname' => $likedUsersName );
+}
 
-/*inserts the like into database */
-likeUser($username, $userId);
+//result if the user has been liked back
 
-$likedUsersName = getUserById($userId);
-
-$result = array('status' => 'success', 'username' => $username, 'likedusersname' => $likedUsersName );
+//$result = array('status' => 'success', 'username' => $username, 'likedyouback' => true);
 
 echo json_encode($result);
 

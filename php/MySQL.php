@@ -162,6 +162,12 @@ class MySQL {
         return count(self::getRows($query)) ;
     }
 
+    static function countLikes($table, $key, $value, $key2, $value2) {
+        $query = "SELECT id FROM " . '`'.$table.'`' . " WHERE " . '`'.$key.'`' . "='" . $value . "' AND " . '`' . $key2 .'` ' . '= ' . "'" . $value2 . "'";
+        //echo $query;
+        return count(self::getRows($query)) ;
+    }
+
     static function countEverything($table, $key, $value) {
         $query = "SELECT id FROM " . '`'.$table.'`' . " WHERE " . '`'.$key.'`' . " LIKE '" . $value . "' ;";
         //echo $query;

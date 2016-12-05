@@ -8,24 +8,24 @@ $(document).ready(function() {
         var html = $(this).parent().parent();
         var icon = $(this);
         //alert(id);
-        
+
         jQuery.ajax({
-            type: "POST", 
-            url: "php/likeuser.php", 
-            dataType:"json", 
-            data:{id:id}, 
+            type: "POST",
+            url: "php/likeuser.php",
+            dataType:"json",
+            data:{id:id},
             success:function(response){
                 console.log(response);
-                //console.log(html); 
+                //console.log(html);
                 $(html).addClass("bg-success");
                 $(icon).addClass("hidden");
                 Push.create("Óha, "+response.username+"!", {
-				    body: "You have just liked "+response.likedusersname,
-				    icon: 'icon.png',
-				    timeout: 4000,
-				    onClick: function () {
-				        window.focus();
-				        this.close();
+      				    body: "You have "+response.status+" "+response.likedusersname,
+      				    icon: 'icon.png',
+      				    timeout: 4000,
+      				    onClick: function () {
+      				        window.focus();
+      				        this.close();
 				    }
 				});
             },
