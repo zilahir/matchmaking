@@ -11,7 +11,7 @@ $checkBackLike = checkBackLike ($username, $userId);
 
 if ($checkBackLike == 0) {
   /*inserts the like into database */
-  likeUser($username, $userId);
+  likeUser($myUserId, $userId);
   $likedUsersName = getUserById($userId);
   // result, if the user has not been liked back
   $result = array('status' => 'liked', 'username' => $username, 'likedusersname' => $likedUsersName );

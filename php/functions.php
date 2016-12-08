@@ -3,6 +3,7 @@
 session_start();
 //session_destroy();
 $username = 'Richard Zilahi';
+$myUserId = '1';
 
 include_once("MySQL.php");
 
@@ -10,9 +11,9 @@ MySQL::connect();
 
 function checkBackLike ($me, $otherUser) {
 
-    $otherUserName = getUserById($otherUser);
+    //$otherUserName = getUserById($otherUser);
     $myId = getUserIdByName($me);
-    $result = MySQL::countLikes('matches','who', $otherUserName, 'whom', $myId);
+    $result = MySQL::countLikes('matches','who', $otherUser, 'whom', $myId);
 
     return $result;
 
@@ -52,7 +53,7 @@ function getUserById ($id) {
 }
 
 function haveLiked ($id) {
-    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='Richard Zilahi' AND `whom`='$id' ";
+    $haveIlikedAlreadySql = "SELECT * FROM `matches` WHERE `who`='1' AND `whom`='$id' ";
     $rows = MySQL::getRows($haveIlikedAlreadySql);
     $firstRow = $rows[0];
 

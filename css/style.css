@@ -4,3 +4,7 @@
 	cursor: pointer;
 	color: #ccc;
 }
+
+.bg-success {
+	background-color: #77dd77 !important;
+}
