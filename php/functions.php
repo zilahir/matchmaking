@@ -18,6 +18,40 @@ function checkBackLike ($me, $otherUser) {
 
 }
 
+function getAUserProfile () {
+  $getAllUsersSql = "SELECT * FROM `users` LIMIT 1 ";
+
+  $rows = MySQL::getRows($getAllUsersSql);
+  $row = $rows[0];
+
+  $id = $row->id;
+  $name = $row->name;
+  $city = $row->city;
+  $email = $row->email;
+  $phone = $row->phone;
+
+  echo '<div class="row">
+    <div class="col-md-4 col-md-offset-4 ">
+  <div class="panel widget">
+    <div class="widget-header bg-primary"></div>
+    <div class="widget-body text-center">
+      <img alt="Profile Picture" class="widget-img img-circle img-border-light" src="http://bootdey.com/img/Content/avatar/avatar1.png">
+      <h4 class="mar-no">'.$name.'</h4>
+      <p class="text-muted mar-btm">'.$city.'</p>
+
+      <div class="pad-ver">
+        <i class="fa fa-close fa-3x"></i>
+        <i class="fa fa-heart-o fa-3x"></i>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+';
+
+}
+
+
 function getUserIdByName ($name) {
     $getUsersNameSql = "SELECT * FROM `users` WHERE `name`='$name' ";
     $rows = MySQL::getRows($getUsersNameSql);

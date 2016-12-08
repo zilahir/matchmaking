@@ -4,3 +4,15 @@
 	cursor: pointer;
 	color: #ccc;
 }
+
+.fa {
+	padding: 0 20px 0 0
+}
+
+.fa-heart-o, .fa-heart {
+	color: #FFD1DC;
+}
+
+.fa-close:hover {
+	color: #ff0000;
+}

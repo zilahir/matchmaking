@@ -18,23 +18,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4 ">
-		<div class="panel widget">
-			<div class="widget-header bg-primary"></div>
-			<div class="widget-body text-center">
-				<img alt="Profile Picture" class="widget-img img-circle img-border-light" src="http://bootdey.com/img/Content/avatar/avatar1.png">
-				<h4 class="mar-no">John Doe</h4>
-				<p class="text-muted mar-btm">Administrator</p>
-
-				<div class="pad-ver">
-					<button class="btn btn-primary">Follow</button>
-					<button class="btn btn-success">Message</button>
-				</div>
-			</div>
-		</div>
-	</div>
-		</div>
+		<?php getAUserProfile(); ?>
 
 		<div class="row hidden">
 			<div class="col-lg-12">

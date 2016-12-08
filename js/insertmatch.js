@@ -1,6 +1,14 @@
 
 $(document).ready(function() {
 
+        $('.fa-heart-o').hover(function () {
+            $(this).addClass('fa-heart');
+            $(this).removeClass('fa-heart-o');
+        }, function () {
+            $(this).addClass('fa-heart-o');
+            $(this).removeClass('fa-heart');
+        });
+
     $(".matchbutton").click(function (e) {
 
         e.preventDefault();
