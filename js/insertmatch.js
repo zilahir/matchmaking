@@ -1,6 +1,17 @@
 
 $(document).ready(function() {
 
+
+    $(".likeuser").click(function (e) {
+
+        e.preventDefault();
+        var id = $(this).data(id);
+        //alert(id.id)
+        var profile = $(this).closest(".profile");
+        $(profile).fadeOut(300, function() { $(this).remove(); });
+
+    });
+
         $('.fa-heart-o').hover(function () {
             $(this).addClass('fa-heart');
             $(this).removeClass('fa-heart-o');
