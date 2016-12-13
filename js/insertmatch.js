@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
 
-    $(".likeuser").click(function (e) {
+    /*$(".likeuser").click(function (e) {
 
         e.preventDefault();
         var id = $(this).data(id);
@@ -10,7 +10,7 @@ $(document).ready(function() {
         var profile = $(this).closest(".profile");
         $(profile).fadeOut(300, function() { $(this).remove(); });
 
-    });
+    });*/
 
         $('.fa-heart-o').hover(function () {
             $(this).addClass('fa-heart');
@@ -20,7 +20,7 @@ $(document).ready(function() {
             $(this).removeClass('fa-heart');
         });
 
-    $(".matchbutton").click(function (e) {
+    $(".likeuser").click(function (e) {
 
         e.preventDefault();
         var id = $(this).data("id");
@@ -36,8 +36,8 @@ $(document).ready(function() {
             success:function(response){
                 console.log(response);
                 //console.log(html);
-                $(html).addClass("bg-success");
-                $(icon).addClass("hidden");
+                //$(html).addClass("bg-success");
+                //$(icon).addClass("hidden");
                 Push.create("Óha, "+response.username+"!", {
       				    body: "You have "+response.status+" "+response.likedusersname,
       				    icon: 'icon.png',
