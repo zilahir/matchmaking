@@ -13,10 +13,22 @@
 	<link rel=stylesheet href="bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel=stylesheet href="css/style.css">
 	<link rel=stylesheet href="css/profile.css">
+	<link rel=stylesheet href="css/header.css">
 	<script type="text/javascript" src="bower_components/push.js/push.min.js"></script>
 	<script src="js/insertmatch.js"></script>
+	<script src="js/header.js"></script>
 </head>
 <body>
+	<header>
+	<h1 id="top">Matchnaking plugin</h1>
+	<h5>by: richardzilahi</h5>
+			<nav>
+					<ul>
+							<li>You have liked: </li>
+
+					</ul>
+			</nav>
+</header>
 	<div class="container-fluid">
 		<?php getAUserProfile(); ?>
 
